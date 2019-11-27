@@ -1,0 +1,35 @@
+#include "pch.h"
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "ru");
+	int n,x;
+	bool f = false;
+	cout << "Введите размер массивов: ";
+	cin >> n;
+	cout << "Введите элементы массива А: ";
+	int* a = new int[n];
+	for (int i = 0; i < n; i++) {
+		cin >> a[i];
+	}
+	
+	for (int i = 0; i < n; i++) {
+		if (a[i] % 2 != 0) {
+			x = a[i];
+			f = true;
+		}
+	}
+	if (f) {
+		for (int i = 0; i < n; i++) {
+			if (a[i] % 2 != 0) {
+				a[i] += x;
+			}
+		}
+	}
+	for (int i = 0; i < n; i++) {
+		cout << a[i] << endl;
+	}
+
+	delete[]a;
+}
